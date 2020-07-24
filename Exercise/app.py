@@ -29,7 +29,7 @@ def project():
     return render_template('17_templates.html')
 
 @app.route('/hello')
-@app.route('/jello/<name>')
+@app.route('/hello/<name>')
 def hello(name=None):
     return render_template('/hello.html', name=name)
 
