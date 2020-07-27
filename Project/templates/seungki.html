@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="contain">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <a class="navbar-brand" style="mergin-left:100px; margin-right: 50;" href="#">
+               <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="1" style="height:50px;">
+               <img src="{{ url_for('static', filename='images/logos.png') }}" alt="logos" style="height:50px;">
+         </a>
+      </nav>
+</div>
+
+<div class="container">
+    <div class="row" style="padding-bottom: 10%;">
+        <div class="col-3">
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">이름</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">성별</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">나이</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">비공</a>
+                      
+                </li>
+            </ul>
+            
+            <ul class="nav nav-pills">
+    
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">조원</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/classification">조현철</a>
+                    <a class="dropdown-item" href="#">곽필종</a>
+                    <a class="dropdown-item" href="#">정승기</a>
+                  </div>
+                </li>
+              </ul>
+        </div> 
+        <div class="col-9">            <hr>
+            <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Logo" style="height:300px;">
+            <br><h3></h3>
+            <br><strong style='color:rgb(37, 37, 119);'>이름 : 조 승 기</strong></br>
+            <br><strong style='color:rgb(37, 37, 119);'>생년월일 : 1992.07.31(29)</strong></br>
+            <br><strong style='color:rgb(37, 37, 119);'>전공 : 경제학과</strong></br>
+            <br><strong style='color:rgb(37, 37, 119);'>취미 : 게임, 영화감상, 수영, 자전거 등</strong></br>
+            <br><strong style='color:rgb(37, 37, 119);'></strong></br>
+
+
+            <br>안녕하세요 비공조의 조승기라고 합니다. 보시다 시피 저는 상당히 큰 키를 가지고 있습니다. 제가 키가 클수 있었던 가장 중요한 요인은 잘먹고 잘자고 잘놀아서 크게 된것도 있겠지만 아버지의 영향을 받아 키가 클 수 있지 않았나 싶습니다. 그리고 키가 큰 덕분에 받는 질문 들이 몇가지 있습니다.</br>
+            <br>첫번째, 처음부터 키가 컸나?</br> 
+            <br>두번째, 뭐먹고 키가 컸나?</br> 
+            <br>세번째, 그 키 나좀 나눠 줄수 있겠느냐?하는 질문들이었습니다.</br>
+            <br></br>
+            
+
+            
+        </div> 
+        <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-bottom">
+            <span class="navbar-text">
+                copyright &copy; 2020 AI Innovator
+              </span>
+            </ul>
+          </nav>
+    </div>
+</div>
+
+</body>
+</html>
