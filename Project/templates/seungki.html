@@ -21,57 +21,64 @@
          </a>
       </nav>
 </div>
+  <div class="row"></div>
+      <div class="col-3"></div> <hr>
+      <img src="{{ url_for('static', filename='images/2.jpg') }}" class="rounded-circle" alt="Logo" style="height:400px;">
+      <div class="col-6"></div>
+        <br><strong style='color:rgb(37, 37, 119);'>이름 : 조 승 기</strong></br>
+        <br><strong style='color:rgb(37, 37, 119);'>생년월일 : 1992.07.31(29)</strong></br>
+        <br><strong style='color:rgb(37, 37, 119);'>전공 : 경제학과</strong></br>
+        <br><strong style='color:rgb(37, 37, 119);'>취미 : 게임, 영화감상, 수영, 자전거 등</strong></br>
+        <br><strong style='color:rgb(37, 37, 119);'>군복무 : 해군(2012.03.12 ~ 2014.02.11)</strong>
+        - 2년간 서울함의 갑판병으로 근무하였으며 멀미가 심하여 육상근무를 희망하였으나
+        단지 키가 크다는 이유 하나만으로 2년간 함정근무 하게됐습니다. 또한 전역하는
+        시기와 맞물려 서울함이 폐선하게 되어 서울 한강에 배치되었고 한강에 가게 된다면
+        제가 2년간 매일 멀미약을 먹으며 버틴 서울함을 볼 수 있습니다.</br>
+        <div class="col-8"> <hr>      
+          <br>안녕하세요 비공조의 조승기 입니다. 간단한 자기소개를 하기에는 저희가 친하게 
+          지내지는 않았더라도 저에 대해서 대충은 알고 계실거라고 생각을 해서 자기소개 
+          보다는 다른분들이 저에 대해 궁금해 하실만한 것들을 생각해보고 말씀을 드리는게 좋을것 같다고 
+          생각하게 되었습니다 그래서 가장 궁금해하실 만한것 3가지만 추려서 말씀을 드리겠습니다. 
+          우선 저는 물을 굉장히 많이 먹는데 하루에 6L 정도 마시는것 같습니다. 그러다 보니
+          쉬는 시간 마다 열심히 정수기에 물뜨러다니고 있습니다. 두번째로 키큰건 유전입니다. 특별히 뭔가를 먹어서 
+          큰건 아닙니다. 세번째로 제가 흰양말만 신고다니는데 흰양말을 구매할때 20+20개 구매하면 너무 저렴하게 
+          구매할 수 있어서 너무 만이 구매하게 되어서 흰양말 밖에 없어서 흰양말만 신고다니게 됐습니다. 
+          이상으로 저에대해서 가장 궁금해하실만한거 3가지를 답변드렸습니다. 혹시 더 궁금하신거있으시다면 
+          개인적으로 말씀해주시면 성심성의껏 답변드리겠습니다. 
+          감사합니다 ^ㅡ^</br>
+          <br></br>
+    
+          <div id="demo" class="carousel slide" data-ride="carousel">
 
-<div class="container">
-    <div class="row" style="padding-bottom: 10%;">
-        <div class="col-3">
-            <ul class="nav flex-column nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">이름</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">성별</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">나이</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">비공</a>
-                      
-                </li>
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
             </ul>
             
-            <ul class="nav nav-pills">
-    
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">조원</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/classification">조현철</a>
-                    <a class="dropdown-item" href="#">곽필종</a>
-                    <a class="dropdown-item" href="#">정승기</a>
-                  </div>
-                </li>
-              </ul>
-        </div> 
-        <div class="col-9">            <hr>
-            <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Logo" style="height:300px;">
-            <br><h3></h3>
-            <br><strong style='color:rgb(37, 37, 119);'>이름 : 조 승 기</strong></br>
-            <br><strong style='color:rgb(37, 37, 119);'>생년월일 : 1992.07.31(29)</strong></br>
-            <br><strong style='color:rgb(37, 37, 119);'>전공 : 경제학과</strong></br>
-            <br><strong style='color:rgb(37, 37, 119);'>취미 : 게임, 영화감상, 수영, 자전거 등</strong></br>
-            <br><strong style='color:rgb(37, 37, 119);'></strong></br>
-
-
-            <br>안녕하세요 비공조의 조승기라고 합니다. 보시다 시피 저는 상당히 큰 키를 가지고 있습니다. 제가 키가 클수 있었던 가장 중요한 요인은 잘먹고 잘자고 잘놀아서 크게 된것도 있겠지만 아버지의 영향을 받아 키가 클 수 있지 않았나 싶습니다. 그리고 키가 큰 덕분에 받는 질문 들이 몇가지 있습니다.</br>
-            <br>첫번째, 처음부터 키가 컸나?</br> 
-            <br>두번째, 뭐먹고 키가 컸나?</br> 
-            <br>세번째, 그 키 나좀 나눠 줄수 있겠느냐?하는 질문들이었습니다.</br>
-            <br></br>
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="Los Angeles" width="1100" height="500" >
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Chicago" width="1100" height="500">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="New York" width="1100" height="500">
+              </div>
+            </div>
             
-
-            
-        </div> 
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+    </div> 
         <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-bottom">
             <span class="navbar-text">
                 copyright &copy; 2020 AI Innovator
