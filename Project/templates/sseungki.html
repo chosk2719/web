@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block subtitle %}
+    <strong>조오승기</strong> - <small>소개</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-5">
+            <img src="{{ url_for('static', filename='images/222.jpg') }}" class="rounded-circle" alt="Logo" style="height:300px;">     
+   		</div>
+        <div class="col-6">
+            <br><strong style='color:rgb(37, 37, 119);'>이름 : 조 승 기</strong></br><hr>
+            <br><strong style='color:rgb(37, 37, 119);'>생년월일 : 1992.07.31(29)</strong></br><hr>
+            <br><strong style='color:rgb(37, 37, 119);'>전공 : 경제학과</strong></br><hr>
+            <br><strong style='color:rgb(37, 37, 119);'>취미 : 게임, 영화감상, 수영, 자전거 등</strong></br><hr>
+            <br><strong style='color:rgb(37, 37, 119);'>github : https://github.com/chosk2719</strong></br><hr>
+        </div>
+    <div class="row">   
+        <div class="col-12">
+        <p><strong>조오승기에게 궁금한것 3가지😄</strong></p>
+        <p><strong>첫번째,</strong> 저는 하루에 물을 6리터 이상 마시는것 같습니다. 그래서 쉬는시간마다 열심히 물뜨러 다니고있습니다.</p>
+        <p><strong>두번째,</strong> 키큰거 유전입니다. 잘먹고 잘자서 큰것일 수도 있지만 유전적인 문제가 가장 크다고 생각합니다.</p>
+        <p><strong>세번째,</strong> 저는 흰양말만 신고 다닙니다. 이유는 양말 짝맞춰 신기가 귀찮아 같은 디자인으로 구매한것입니다.</p>
+        <p>이상 저에대해 궁금해 하셨을거같은 3가지에 대해 말씀드렸습니다. 혹시 더 궁금하신게 있으시다면 따로 물어봐주세요.</p>
+        <p>그럼 성심성의껏 답변드리겠습니다. </p>
+        <p>감사합니다. 🙊</p>
+        </div>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active" style="cen">
+                <img src="{{ url_for('static', filename='images/qq1.gif') }}" alt="Los Angeles" width="500" height="500" >
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/qq4.gif') }}" alt="Chicago" width="500" height="500">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='images/qq6.gif') }}" alt="New York" width="500" height="500">
+              </div>
+            </div>
+            
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+        
+    </div>                
+{% endblock %}

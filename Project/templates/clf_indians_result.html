@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block subtitle %}
+    <strong>피마 인디언</strong> - <small>결과</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Pregnant(임신) 횟수</td>
+                        <td> {{ indians.pregnant }} </td>
+                    </tr>
+                    <tr>
+                        <td>혈당 농도</td>
+                        <td> {{ indians.plasma }} </td>
+                    </tr>
+                    <tr>
+                        <td>확장기 혈압</td>
+                        <td> {{ indians.pressure }} </td>
+                    </tr>
+                    <tr>
+                        <td>삼두근 피부 주름 두께</td>
+                        <<td> {{ indians.thickness }} </td>
+                    </tr>
+
+                    <tr>
+                        <td>혈정 인슐린</td>
+                        <td> {{ indians.insulin }} </td>
+                    </tr>
+
+                    <tr>
+                        <td>BMI</td>
+                        <td> {{ indians.bmi }} </td>
+                    </tr>
+
+                    <tr>
+                        <td>당뇨병 가족력</td>
+                        <td> {{ indians.pedigree }} </td>
+                    </tr>
+
+                    <tr>
+                        <td>나이</td>
+                        <td> {{ indians.age }} </td>
+                    </tr>
+
+
+                    <tr class ='alert alert-warning'>
+                        <td><strong>결과</strong></td>
+                        <td> <strong>{{ indians.result }}</strong>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button class="btn btn-primary" onclick="location.href='/classification_indians'">재실행</button>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+        <div class="col-4"></div>
+    </div>                
+{% endblock %}

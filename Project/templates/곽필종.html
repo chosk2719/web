@@ -1,0 +1,96 @@
+{% block subtitle %}
+<table class="table table-borderless table-sm">
+    <tr>
+        <td>Introduce</td>
+        <td style="text-align: right;"><a href="/">
+            <button class="btn btn-dark">뒤로가기</button>
+        </a></td>
+    </tr>
+</table>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6">
+        <img src="https://avatars0.githubusercontent.com/u/52646895?s=400&u=a72621251c5626392a83926e98b87c8fa62f4a22&v=4"
+             class="rounded-circle">
+    </div>
+    <div class="col-lg-6">
+        <table class="table table-borderless">
+            <tr>
+                <td><h4>이름</h4></td>
+                <td><h4>곽필종</h4></td>
+            </tr>
+            <tr>
+                <td><h4>생년월일</h4></td>
+                <td><h4>1990.07.31</h4></td>
+            </tr>
+            <tr>
+                <td><h4>취미</h4></td>
+                <td><h4>게임</h4></td>
+            </tr>
+            <tr>
+                <td><h4>전공</h4></td>
+                <td><h4>컴퓨터공학과</h4></td>
+            </tr>
+            <tr>
+                <td><h4>현재 상태</h4></td>
+                <td><h4>취업하고 싶음</h4></td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>
+                        <del>SNS</del>
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td><h5>Email</h5></td>
+                <td><h5>tjfgusfkd@gmail.com</h5></td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="row" style="padding-top: 10%; padding-bottom: 5%">
+
+        자기소개에 할 말은 없지만 7월 27일날에 있던 일이... 감성분석을 하면 실행되던 플라스크가 툭하면 다운되어서 죽겠음 수정을 해도 강사님껄 그대로 가져와서 해도 계속 다운됩니다 흐어어어어엉 왜
+        안되는거야
+
+    </div>
+
+    <div class="row" style="padding-bottom: 15%">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="AI" class="d-block w-100"
+                         height="556px">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="ML" class="d-block w-100"
+                         height="556px">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="DL" class="d-block w-100"
+                         height="556px">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

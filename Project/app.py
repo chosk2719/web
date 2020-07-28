@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from werkzeug import secure_filename
+
+from werkzeug.utils import secure_filename
 
 import os
 import joblib
@@ -9,9 +10,13 @@ import re
 from PIL import Image
 from konlpy.tag import Okt
 from tensorflow import keras
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from keras.applications.vgg16 import VGG16, decode_predictions
-
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import LabelEncoder
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from clust_util import cluster_util
 
 
 app = Flask(__name__)
@@ -52,6 +57,11 @@ def load_iris():
     model_iris_dt = joblib.load(os.path.join(app.root_path,'model/iris_dt.pkl'))
     model_iris_deep = load_model(os.path.join(app.root_path,'model/iris_deep.hdf5'))
 
+model_indians = None
+
+def load_indians():
+    global  model_indians
+    model_indians = load_model(os.path.join(app.root_path, 'model/best_model.hdf5'))
 
 
 def nb_transform(review):
@@ -66,12 +76,12 @@ def nb_transform(review):
 
 @app.route('/')
 def index():
-    menu = {'home':True, 'rgrs':False, 'stmt':False, 'clsf':False, 'clst':False, 'user':False, 'qqqqq':False}
+    menu = {'home':True, 'rgrs':False, 'stmt':False, 'clsf':False, 'clst':False, 'user':False}
     return render_template('home.html', menu=menu)
 
 @app.route('/regression', methods=['GET', 'POST'])
 def regression():
-    menu = {'home':False, 'rgrs':True, 'stmt':False, 'clsf':False, 'clst':False, 'user':False, 'qqqqq':False}
+    menu = {'home':False, 'rgrs':True, 'stmt':False, 'clsf':False, 'clst':False, 'user':False}
     if request.method == 'GET':
         return render_template('regression.html', menu=menu)
     else:
@@ -114,7 +124,7 @@ def sentiment():
 
 @app.route('/classification', methods=['GET', 'POST'])
 def classification():
-    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':True, 'clst':False, 'user':False, 'qqqqq':False}
+    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':True, 'clst':False, 'user':False}
     if request.method == 'GET':
         return render_template('classification.html', menu=menu)
     else:
@@ -137,7 +147,7 @@ def classification():
 
 @app.route('/classification_iris', methods=['GET', 'POST'])
 def classification_iris():
-    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':True, 'clst':False, 'user':False, 'qqqqq':False}
+    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':True, 'clst':False, 'user':False}
     if request.method == 'GET':
         return render_template('classification_iris.html', menu=menu)
     else:
@@ -154,24 +164,72 @@ def classification_iris():
         iris = {'slen':slen, 'swid':swid, 'plen':plen, 'pwid':pwid, 'species_lr':species_lr, 'species_svm':species_svm, 'species_dt':species_dt, 'species_deep':species_deep}
         return render_template('cla_iris_result.html', menu=menu, iris=iris)
        
-
-
-
-@app.route('/clustering')
-def clustering():
-    pass
-
-@app.route('/seungki', methods=['GET', 'POST'])
-def seungki():
-    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':False, 'clst':False, 'user':False, 'qqqqq':True}
+@app.route('/classification_indians', methods=['GET', 'POST'])
+def classification_indians():
+    menu = {'home': False, 'intro':False, 'rgrs': False, 'stmt': False, 'clsf': True, 'clst': False, 'user': False}
     if request.method == 'GET':
-        return render_template('seungki.html',menu=menu)
+        return render_template('classification_indians.html', menu=menu)
+    else:
+        sp_names = ['당뇨 아님', '당뇨']
+        pregnant = int(request.form['pregnant'])
+        plasma = int(request.form['plasma'])
+        pressure = int(request.form['pressure'])
+        thickness = int(request.form['thickness'])
+        insulin = int(request.form['insulin'])
+        BMI = float(request.form['bmi'])
+        pedigree = float(request.form['pedigree'])
+        age = int(request.form['age'])
+
+        test_data = np.array([pregnant, plasma, pressure, thickness, insulin, BMI, pedigree, age]).reshape(1, 8)
+        results = sp_names[model_indians.predict_classes(test_data)[0][0]]
+
+        indians = {'pregnant': pregnant, 'plasma': plasma, 'pressure': pressure, 'thickness': thickness,
+                'insulin': insulin, 'bmi': BMI,
+                'pedigree': pedigree, 'age':age, 'result': results}
+        return render_template('clf_indians_result.html', menu=menu, indians=indians)
+
+
+@app.route('/clustering', methods=['GET', 'POST'])
+def clustering():
+    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':False, 'clst':True, 'user':False}
+    if  request.method == 'GET':
+        return render_template('clustering.html', menu=menu)
+    else:
+        f = request.files['csv']
+        filename = os.path.join(app.root_path, 'static/images/uploads/') + \
+                    secure_filename(f.filename)
+        f.save(filename)
+        ncls = int(request.form['K'])
+        cluster_util(app, ncls, secure_filename(f.filename))
+        img_file = os.path.join(app.root_path, 'static/images/kmc.png')
+        mtime = int(os.stat(img_file).st_mtime)
+        return render_template('clu_result.html', menu=menu, K=ncls, mtime=mtime)
+
+
+
+
+
+@app.route('/sseungki', methods=['GET', 'POST'])
+def seungki():
+    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':False, 'clst':False, 'user':True}
+    if request.method == 'GET':
+        return render_template('sseungki.html',menu=menu)
     else:
         pass
 
 
+@app.route('/member/<name>')
+def member(name):
+    menu = {'home':False, 'rgrs':False, 'stmt':False, 'clsf':False, 'clst':False, 'user':True}
+    nickname = request.args.get('nickname', '별명: 없음')
+    return render_template('user.html', menu=menu, name=name, nickname=nickname)
+
+
+
+
 if __name__ == '__main__':
     load_movie_nb()
-    load_movie_lr()              
+    load_movie_lr()      
+    load_indians()        
     load_iris()
     app.run()
