@@ -8,45 +8,40 @@
         <div class="col-6">
             <table class="table">
                 <tr>
-                    <td>Sepal Length</td>
-                    <td>{{ iris.slen }}</td>
+                    <td>Sepal Length</td><td>{{iris.slen}}</td>
                 </tr>
                 <tr>
-                    <td>Petal Length</td>
-                    <td>{{ iris.plen }}</td>
+                    <td>Sepal Width</td><td>{{iris.swid}}</td>
                 </tr>
                 <tr>
-                    <td>Petal Width</td>
-                    <td>{{ iris.pwid }}</td>
-                </tr>					
+                    <td>Petal Length</td><td>{{iris.plen}}</td>
+                </tr>
+                <tr>
+                    <td>Petal Width</td><td>{{iris.pwid}}</td>
+                </tr>
                 <tr class="alert alert-warning">
-                    <td><strong>Logistic</strong></td>
-                    <td><strong>{{ iris.species_lr }}</strong></td>
+                    <td><strong>Logistic Regression</strong></td>
+                    <td><strong>{{iris.species_lr}}</strong></td>
                 </tr>
                 <tr class="alert alert-info">
                     <td><strong>Support Vector Machine</strong></td>
-                    <td><strong>{{ iris.species_svm }}</strong></td>
+                    <td><strong>{{iris.species_svm}}</strong></td>
                 </tr>
                 <tr class="alert alert-warning">
                     <td><strong>Decision Tree</strong></td>
-                    <td><strong>{{ iris.species_dt }}</strong></td>
+                    <td><strong>{{iris.species_dt}}</strong></td>
                 </tr>
                 <tr class="alert alert-info">
-                    <td><strong>Deep learning</strong></td>
-                    <td><strong>{{ iris.species_deep }}</strong></td>
-                </tr>
-                <tr>
-                    <td>품종</td>
-                    <td>{{ iris.species }}</td>
+                    <td><strong>Deep Learning</strong></td>
+                    <td><strong>{{iris.species_deep}}</strong></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">
-                        <button class="btn btn-primary"
-                                onclick="location.href='/classification_iris'">재실행</button>
+                        <button class="btn btn-primary" onclick="location.href='/iris_classification'">재실행</button>
                     </td>
                 </tr>
-            </table>		
+            </table>
         </div>
         <div class="col-4"></div>
-    </div>                
+    </div>
 {% endblock %}
